@@ -15,7 +15,7 @@ const App = () => {
     const [posts, setPosts] = useState([
         {
             id: 1,
-            title: 'Hello, World!',
+            title: 'Helloooo!',
             content: 'This is my first post on this social media platform.',
             likes: 0
         },
