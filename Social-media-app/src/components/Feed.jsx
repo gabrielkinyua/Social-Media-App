@@ -1,6 +1,7 @@
 import React from "react";
+import CommentSection from "./CommentSection";
 
-const Feed = ({ posts, handleLike }) => {
+const Feed = ({ posts, handleLike, handleComment }) => {
   return (
     <div className="feed">
       {posts.map((post) => (
@@ -10,6 +11,11 @@ const Feed = ({ posts, handleLike }) => {
             <button onClick={() => handleLike(post.id)}>
               Like ({post.likes})
               </button>
+              <CommentSection 
+              postId={post.id} 
+              comments={post.comments}
+              handleComment={handleComment}
+              />
         </div>
         ))}
     </div>

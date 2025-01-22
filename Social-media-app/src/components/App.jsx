@@ -17,13 +17,15 @@ const App = () => {
             id: 1,
             title: 'Helloooo!',
             content: 'This is my first post on this social media platform.',
-            likes: 0
+            likes: 0,
+            comments: []    
         },
         {
             id: 2,
             title: 'Hello, Again!',
             content: 'This is my second post on this social media platform.',
-            likes: 0
+            likes: 0,
+            comments: []
         }
     ]);
 
@@ -33,14 +35,21 @@ const App = () => {
         ));
         setNotifications(notifications + 1);   
     };
-    
+
+    const handleComment = (postId, comment ) => {
+        setPosts(posts.map(post =>
+            post.id === postId ? { ...post, comments: [...post.comments, comment] } : post
+        ));
+        setNotifications(notifications + 1);
+    }
+
     return (
         <div className="app">
             <div className="notifications">
                 Notifications: {notifications}
             </div>
             <ProfileHeader user={user} />
-            <Feed posts={posts} handleLike={handleLike} />
+            <Feed posts={posts} handleLike={handleLike} handleComment={handleComment} />
         </div>
     );
 };    
